@@ -1,0 +1,970 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BankMaster">
+          <Key>
+            <PropertyRef Name="BankId" />
+          </Key>
+          <Property Name="BankId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="BankAccountNo" Type="bigint" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="300" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="300" />
+          <Property Name="Branch" Type="nvarchar" MaxLength="100" />
+          <Property Name="AccountType" Type="nvarchar" MaxLength="100" />
+          <Property Name="IFSCCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="MICRNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="CategoryMaster">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Details" Type="nvarchar(max)" />
+          <Property Name="CategoryImage" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="CityMaster">
+          <Key>
+            <PropertyRef Name="cityID" />
+          </Key>
+          <Property Name="cityID" Type="int" Nullable="false" />
+          <Property Name="cityName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="stateID" Type="int" Nullable="false" />
+          <Property Name="countryID" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="latitude" Type="float" Nullable="false" />
+          <Property Name="longitude" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CountryMaster">
+          <Key>
+            <PropertyRef Name="countryID" />
+          </Key>
+          <Property Name="countryID" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="countryName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="localName" Type="nvarchar" MaxLength="100" />
+          <Property Name="webCode" Type="varchar" MaxLength="2" />
+          <Property Name="region" Type="varchar" MaxLength="50" />
+          <Property Name="continent" Type="varchar" MaxLength="25" />
+          <Property Name="latitude" Type="float" Nullable="false" />
+          <Property Name="longitude" Type="float" Nullable="false" />
+          <Property Name="surfaceArea" Type="float" Nullable="false" />
+          <Property Name="population" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerMaster">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="ShipmentMethod" Type="nvarchar" MaxLength="50" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="EmployeeMaster">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="300" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="300" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="300" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Religion" Type="nvarchar" MaxLength="100" />
+          <Property Name="Cast" Type="nvarchar" MaxLength="100" />
+          <Property Name="BloodGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="AdhrecardNo" Type="bigint" />
+          <Property Name="Residential Address" Type="nvarchar(max)" />
+          <Property Name="RegistrationDate" Type="datetime" />
+          <Property Name="Nationality" Type="nvarchar" MaxLength="100" />
+          <Property Name="EmployeePhoto" Type="nvarchar(max)" />
+          <Property Name="CreateOn" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="300" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="300" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="InquiryMaster">
+          <Key>
+            <PropertyRef Name="Inquiryid" />
+          </Key>
+          <Property Name="Inquiryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="300" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="countryName" Type="nvarchar(max)" />
+          <Property Name="stateName" Type="nvarchar(max)" />
+          <Property Name="cityName" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="ShipmentMethod" Type="nvarchar" MaxLength="50" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="InvoiceMaster">
+          <Key>
+            <PropertyRef Name="InvoiceId" />
+          </Key>
+          <Property Name="InvoiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceNo" Type="int" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="TransportId" Type="int" />
+          <Property Name="PayModeId" Type="int" />
+          <Property Name="shipmentId" Type="int" />
+          <Property Name="Quantity" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="TransportCost" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="GST" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CGST" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="IGST" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="TotalCost" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="TotalDiscount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="TotalTax" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="GrandTotal" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PaidAmount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PendingAmount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PayDate" Type="date" />
+          <Property Name="Createby" Type="int" />
+          <Property Name="CreateId" Type="int" />
+          <Property Name="Createdate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="LoginMaster">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="300" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="Id" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="OrderMaster">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ShipmentId" Type="int" />
+          <Property Name="PayModeId" Type="int" />
+          <Property Name="TrackingNumber" Type="nvarchar" MaxLength="300" />
+          <Property Name="Orderdate" Type="datetime" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="TotalPrice" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="UnitId" Type="int" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="PayModeMaster">
+          <Key>
+            <PropertyRef Name="PayModeId" />
+          </Key>
+          <Property Name="PayModeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymodeName" Type="nvarchar" MaxLength="300" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="ProductMaster">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="SubcategoryId" Type="int" />
+          <Property Name="TransportId" Type="int" />
+          <Property Name="ProductTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductDetails" Type="nvarchar(max)" />
+          <Property Name="ProductPrice" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ProductQuantity" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ProductImages" Type="nvarchar(max)" />
+          <Property Name="ExpiryDate" Type="date" />
+          <Property Name="UnitId" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="RegstationMaster">
+          <Key>
+            <PropertyRef Name="RejId" />
+          </Key>
+          <Property Name="RejId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="300" />
+          <Property Name="MobileNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="300" />
+          <Property Name="Address" Type="nvarchar" MaxLength="300" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="RoleMaster">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="SelaryMaster">
+          <Key>
+            <PropertyRef Name="SalaryId" />
+          </Key>
+          <Property Name="SalaryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" />
+          <Property Name="BasicSalary" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="HouseRent" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="TransportAllowance" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="MedicalAllowance" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PF" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Tex" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="GrandTotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="ShipmentmethodMaster">
+          <Key>
+            <PropertyRef Name="ShipMentId" />
+          </Key>
+          <Property Name="ShipMentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShipMentName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="StateMaster">
+          <Key>
+            <PropertyRef Name="stateID" />
+          </Key>
+          <Property Name="stateID" Type="int" Nullable="false" />
+          <Property Name="stateName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="countryID" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="latitude" Type="float" Nullable="false" />
+          <Property Name="longitude" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StockMaster">
+          <Key>
+            <PropertyRef Name="StockId" />
+          </Key>
+          <Property Name="StockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="UnitId" Type="int" />
+          <Property Name="TransportId" Type="int" />
+          <Property Name="StockQuantity" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="SubcategoryMaster">
+          <Key>
+            <PropertyRef Name="SubcategoryId" />
+          </Key>
+          <Property Name="SubcategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="SubcategoryName" Type="nvarchar" MaxLength="100" />
+          <Property Name="SubCategoryDetails" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TransportMaster">
+          <Key>
+            <PropertyRef Name="TransportId" />
+          </Key>
+          <Property Name="TransportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShipmentId" Type="int" />
+          <Property Name="EmployeeId" Type="int" />
+          <Property Name="Departure Location" Type="nvarchar(max)" />
+          <Property Name="Arrival Location" Type="nvarchar(max)" />
+          <Property Name="Departure Date" Type="date" />
+          <Property Name="Arrival Date" Type="date" />
+          <Property Name="Distance" Type="nvarchar" MaxLength="50" />
+          <Property Name="TransportCost" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="UnitMaster">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitName" Type="nvarchar" MaxLength="300" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="BankMaster" EntityType="Self.BankMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryMaster" EntityType="Self.CategoryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CityMaster" EntityType="Self.CityMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CountryMaster" EntityType="Self.CountryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerMaster" EntityType="Self.CustomerMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeMaster" EntityType="Self.EmployeeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InquiryMaster" EntityType="Self.InquiryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvoiceMaster" EntityType="Self.InvoiceMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginMaster" EntityType="Self.LoginMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderMaster" EntityType="Self.OrderMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PayModeMaster" EntityType="Self.PayModeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductMaster" EntityType="Self.ProductMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegstationMaster" EntityType="Self.RegstationMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleMaster" EntityType="Self.RoleMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SelaryMaster" EntityType="Self.SelaryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShipmentmethodMaster" EntityType="Self.ShipmentmethodMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateMaster" EntityType="Self.StateMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StockMaster" EntityType="Self.StockMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubcategoryMaster" EntityType="Self.SubcategoryMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransportMaster" EntityType="Self.TransportMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnitMaster" EntityType="Self.UnitMaster" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BankMaster">
+          <Key>
+            <PropertyRef Name="BankId" />
+          </Key>
+          <Property Name="BankId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="BankAccountNo" Type="Int64" />
+          <Property Name="EmployeeName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Branch" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AccountType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IFSCCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MICRNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CategoryMaster">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="CityMaster">
+          <Key>
+            <PropertyRef Name="cityID" />
+          </Key>
+          <Property Name="cityID" Type="Int32" Nullable="false" />
+          <Property Name="cityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="stateID" Type="Int32" Nullable="false" />
+          <Property Name="countryID" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="latitude" Type="Double" Nullable="false" />
+          <Property Name="longitude" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CountryMaster">
+          <Key>
+            <PropertyRef Name="countryID" />
+          </Key>
+          <Property Name="countryID" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="countryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="localName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="webCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="continent" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="latitude" Type="Double" Nullable="false" />
+          <Property Name="longitude" Type="Double" Nullable="false" />
+          <Property Name="surfaceArea" Type="Double" Nullable="false" />
+          <Property Name="population" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerMaster">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="FullName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShipmentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="EmployeeMaster">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Religion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Cast" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="AdhrecardNo" Type="Int64" />
+          <Property Name="Residential_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
+          <Property Name="Nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeePhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateOn" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="InquiryMaster">
+          <Key>
+            <PropertyRef Name="Inquiryid" />
+          </Key>
+          <Property Name="Inquiryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="countryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="stateName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShipmentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="InvoiceMaster">
+          <Key>
+            <PropertyRef Name="InvoiceId" />
+          </Key>
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceNo" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="TransportId" Type="Int32" />
+          <Property Name="PayModeId" Type="Int32" />
+          <Property Name="shipmentId" Type="Int32" />
+          <Property Name="Quantity" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TransportCost" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="GST" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CGST" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="IGST" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TotalCost" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TotalDiscount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TotalTax" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="GrandTotal" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PaidAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PendingAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PayDate" Type="DateTime" Precision="0" />
+          <Property Name="Createby" Type="Int32" />
+          <Property Name="CreateId" Type="Int32" />
+          <Property Name="Createdate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="LoginMaster">
+          <Key>
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="LoginId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="Id" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="OrderMaster">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="ShipmentId" Type="Int32" />
+          <Property Name="PayModeId" Type="Int32" />
+          <Property Name="TrackingNumber" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Orderdate" Type="DateTime" Precision="3" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="UnitId" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="PayModeMaster">
+          <Key>
+            <PropertyRef Name="PayModeId" />
+          </Key>
+          <Property Name="PayModeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymodeName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ProductMaster">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="SubcategoryId" Type="Int32" />
+          <Property Name="TransportId" Type="Int32" />
+          <Property Name="ProductTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductPrice" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ProductQuantity" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ProductImages" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="0" />
+          <Property Name="UnitId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="RegstationMaster">
+          <Key>
+            <PropertyRef Name="RejId" />
+          </Key>
+          <Property Name="RejId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="RoleMaster">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SelaryMaster">
+          <Key>
+            <PropertyRef Name="SalaryId" />
+          </Key>
+          <Property Name="SalaryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="Int32" />
+          <Property Name="BasicSalary" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="HouseRent" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TransportAllowance" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="MedicalAllowance" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PF" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Tex" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="GrandTotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ShipmentmethodMaster">
+          <Key>
+            <PropertyRef Name="ShipMentId" />
+          </Key>
+          <Property Name="ShipMentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShipMentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="StateMaster">
+          <Key>
+            <PropertyRef Name="stateID" />
+          </Key>
+          <Property Name="stateID" Type="Int32" Nullable="false" />
+          <Property Name="stateName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="countryID" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="latitude" Type="Double" Nullable="false" />
+          <Property Name="longitude" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StockMaster">
+          <Key>
+            <PropertyRef Name="StockId" />
+          </Key>
+          <Property Name="StockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="UnitId" Type="Int32" />
+          <Property Name="TransportId" Type="Int32" />
+          <Property Name="StockQuantity" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SubcategoryMaster">
+          <Key>
+            <PropertyRef Name="SubcategoryId" />
+          </Key>
+          <Property Name="SubcategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="SubcategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SubCategoryDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TransportMaster">
+          <Key>
+            <PropertyRef Name="TransportId" />
+          </Key>
+          <Property Name="TransportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShipmentId" Type="Int32" />
+          <Property Name="EmployeeId" Type="Int32" />
+          <Property Name="Departure_Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Arrival_Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Departure_Date" Type="DateTime" Precision="0" />
+          <Property Name="Arrival_Date" Type="DateTime" Precision="0" />
+          <Property Name="Distance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TransportCost" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="UnitMaster">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="Bhavani_GlobalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BankMasters" EntityType="Self.BankMaster" />
+          <EntitySet Name="CategoryMasters" EntityType="Self.CategoryMaster" />
+          <EntitySet Name="CityMasters" EntityType="Self.CityMaster" />
+          <EntitySet Name="CountryMasters" EntityType="Self.CountryMaster" />
+          <EntitySet Name="CustomerMasters" EntityType="Self.CustomerMaster" />
+          <EntitySet Name="EmployeeMasters" EntityType="Self.EmployeeMaster" />
+          <EntitySet Name="InquiryMasters" EntityType="Self.InquiryMaster" />
+          <EntitySet Name="InvoiceMasters" EntityType="Self.InvoiceMaster" />
+          <EntitySet Name="LoginMasters" EntityType="Self.LoginMaster" />
+          <EntitySet Name="OrderMasters" EntityType="Self.OrderMaster" />
+          <EntitySet Name="PayModeMasters" EntityType="Self.PayModeMaster" />
+          <EntitySet Name="ProductMasters" EntityType="Self.ProductMaster" />
+          <EntitySet Name="RegstationMasters" EntityType="Self.RegstationMaster" />
+          <EntitySet Name="RoleMasters" EntityType="Self.RoleMaster" />
+          <EntitySet Name="SelaryMasters" EntityType="Self.SelaryMaster" />
+          <EntitySet Name="ShipmentmethodMasters" EntityType="Self.ShipmentmethodMaster" />
+          <EntitySet Name="StateMasters" EntityType="Self.StateMaster" />
+          <EntitySet Name="StockMasters" EntityType="Self.StockMaster" />
+          <EntitySet Name="SubcategoryMasters" EntityType="Self.SubcategoryMaster" />
+          <EntitySet Name="TransportMasters" EntityType="Self.TransportMaster" />
+          <EntitySet Name="UnitMasters" EntityType="Self.UnitMaster" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Bhavani_GlobalEntities">
+          <EntitySetMapping Name="BankMasters">
+            <EntityTypeMapping TypeName="Model.BankMaster">
+              <MappingFragment StoreEntitySet="BankMaster">
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="BankAccountNo" ColumnName="BankAccountNo" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="AccountType" ColumnName="AccountType" />
+                <ScalarProperty Name="IFSCCode" ColumnName="IFSCCode" />
+                <ScalarProperty Name="MICRNo" ColumnName="MICRNo" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryMasters">
+            <EntityTypeMapping TypeName="Model.CategoryMaster">
+              <MappingFragment StoreEntitySet="CategoryMaster">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="CategoryImage" ColumnName="CategoryImage" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CityMasters">
+            <EntityTypeMapping TypeName="Model.CityMaster">
+              <MappingFragment StoreEntitySet="CityMaster">
+                <ScalarProperty Name="cityID" ColumnName="cityID" />
+                <ScalarProperty Name="cityName" ColumnName="cityName" />
+                <ScalarProperty Name="stateID" ColumnName="stateID" />
+                <ScalarProperty Name="countryID" ColumnName="countryID" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CountryMasters">
+            <EntityTypeMapping TypeName="Model.CountryMaster">
+              <MappingFragment StoreEntitySet="CountryMaster">
+                <ScalarProperty Name="countryID" ColumnName="countryID" />
+                <ScalarProperty Name="countryName" ColumnName="countryName" />
+                <ScalarProperty Name="localName" ColumnName="localName" />
+                <ScalarProperty Name="webCode" ColumnName="webCode" />
+                <ScalarProperty Name="region" ColumnName="region" />
+                <ScalarProperty Name="continent" ColumnName="continent" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="surfaceArea" ColumnName="surfaceArea" />
+                <ScalarProperty Name="population" ColumnName="population" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerMasters">
+            <EntityTypeMapping TypeName="Model.CustomerMaster">
+              <MappingFragment StoreEntitySet="CustomerMaster">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ShipmentMethod" ColumnName="ShipmentMethod" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeMasters">
+            <EntityTypeMapping TypeName="Model.EmployeeMaster">
+              <MappingFragment StoreEntitySet="EmployeeMaster">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="EmployeeCode" ColumnName="EmployeeCode" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Cast" ColumnName="Cast" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="AdhrecardNo" ColumnName="AdhrecardNo" />
+                <ScalarProperty Name="Residential_Address" ColumnName="Residential Address" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="EmployeePhoto" ColumnName="EmployeePhoto" />
+                <ScalarProperty Name="CreateOn" ColumnName="CreateOn" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InquiryMasters">
+            <EntityTypeMapping TypeName="Model.InquiryMaster">
+              <MappingFragment StoreEntitySet="InquiryMaster">
+                <ScalarProperty Name="Inquiryid" ColumnName="Inquiryid" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="countryName" ColumnName="countryName" />
+                <ScalarProperty Name="stateName" ColumnName="stateName" />
+                <ScalarProperty Name="cityName" ColumnName="cityName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ShipmentMethod" ColumnName="ShipmentMethod" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvoiceMasters">
+            <EntityTypeMapping TypeName="Model.InvoiceMaster">
+              <MappingFragment StoreEntitySet="InvoiceMaster">
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="TransportId" ColumnName="TransportId" />
+                <ScalarProperty Name="PayModeId" ColumnName="PayModeId" />
+                <ScalarProperty Name="shipmentId" ColumnName="shipmentId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="TransportCost" ColumnName="TransportCost" />
+                <ScalarProperty Name="GST" ColumnName="GST" />
+                <ScalarProperty Name="CGST" ColumnName="CGST" />
+                <ScalarProperty Name="IGST" ColumnName="IGST" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
+                <ScalarProperty Name="TotalTax" ColumnName="TotalTax" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+                <ScalarProperty Name="PendingAmount" ColumnName="PendingAmount" />
+                <ScalarProperty Name="PayDate" ColumnName="PayDate" />
+                <ScalarProperty Name="Createby" ColumnName="Createby" />
+                <ScalarProperty Name="CreateId" ColumnName="CreateId" />
+                <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginMasters">
+            <EntityTypeMapping TypeName="Model.LoginMaster">
+              <MappingFragment StoreEntitySet="LoginMaster">
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderMasters">
+            <EntityTypeMapping TypeName="Model.OrderMaster">
+              <MappingFragment StoreEntitySet="OrderMaster">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ShipmentId" ColumnName="ShipmentId" />
+                <ScalarProperty Name="PayModeId" ColumnName="PayModeId" />
+                <ScalarProperty Name="TrackingNumber" ColumnName="TrackingNumber" />
+                <ScalarProperty Name="Orderdate" ColumnName="Orderdate" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayModeMasters">
+            <EntityTypeMapping TypeName="Model.PayModeMaster">
+              <MappingFragment StoreEntitySet="PayModeMaster">
+                <ScalarProperty Name="PayModeId" ColumnName="PayModeId" />
+                <ScalarProperty Name="PaymodeName" ColumnName="PaymodeName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductMasters">
+            <EntityTypeMapping TypeName="Model.ProductMaster">
+              <MappingFragment StoreEntitySet="ProductMaster">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="SubcategoryId" ColumnName="SubcategoryId" />
+                <ScalarProperty Name="TransportId" ColumnName="TransportId" />
+                <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
+                <ScalarProperty Name="ProductDetails" ColumnName="ProductDetails" />
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+                <ScalarProperty Name="ProductQuantity" ColumnName="ProductQuantity" />
+                <ScalarProperty Name="ProductImages" ColumnName="ProductImages" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegstationMasters">
+            <EntityTypeMapping TypeName="Model.RegstationMaster">
+              <MappingFragment StoreEntitySet="RegstationMaster">
+                <ScalarProperty Name="RejId" ColumnName="RejId" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="MobileNO" ColumnName="MobileNO" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleMasters">
+            <EntityTypeMapping TypeName="Model.RoleMaster">
+              <MappingFragment StoreEntitySet="RoleMaster">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SelaryMasters">
+            <EntityTypeMapping TypeName="Model.SelaryMaster">
+              <MappingFragment StoreEntitySet="SelaryMaster">
+                <ScalarProperty Name="SalaryId" ColumnName="SalaryId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+                <ScalarProperty Name="HouseRent" ColumnName="HouseRent" />
+                <ScalarProperty Name="TransportAllowance" ColumnName="TransportAllowance" />
+                <ScalarProperty Name="MedicalAllowance" ColumnName="MedicalAllowance" />
+                <ScalarProperty Name="PF" ColumnName="PF" />
+                <ScalarProperty Name="Tex" ColumnName="Tex" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShipmentmethodMasters">
+            <EntityTypeMapping TypeName="Model.ShipmentmethodMaster">
+              <MappingFragment StoreEntitySet="ShipmentmethodMaster">
+                <ScalarProperty Name="ShipMentId" ColumnName="ShipMentId" />
+                <ScalarProperty Name="ShipMentName" ColumnName="ShipMentName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateMasters">
+            <EntityTypeMapping TypeName="Model.StateMaster">
+              <MappingFragment StoreEntitySet="StateMaster">
+                <ScalarProperty Name="stateID" ColumnName="stateID" />
+                <ScalarProperty Name="stateName" ColumnName="stateName" />
+                <ScalarProperty Name="countryID" ColumnName="countryID" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockMasters">
+            <EntityTypeMapping TypeName="Model.StockMaster">
+              <MappingFragment StoreEntitySet="StockMaster">
+                <ScalarProperty Name="StockId" ColumnName="StockId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="TransportId" ColumnName="TransportId" />
+                <ScalarProperty Name="StockQuantity" ColumnName="StockQuantity" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubcategoryMasters">
+            <EntityTypeMapping TypeName="Model.SubcategoryMaster">
+              <MappingFragment StoreEntitySet="SubcategoryMaster">
+                <ScalarProperty Name="SubcategoryId" ColumnName="SubcategoryId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="SubcategoryName" ColumnName="SubcategoryName" />
+                <ScalarProperty Name="SubCategoryDetails" ColumnName="SubCategoryDetails" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransportMasters">
+            <EntityTypeMapping TypeName="Model.TransportMaster">
+              <MappingFragment StoreEntitySet="TransportMaster">
+                <ScalarProperty Name="TransportId" ColumnName="TransportId" />
+                <ScalarProperty Name="ShipmentId" ColumnName="ShipmentId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Departure_Location" ColumnName="Departure Location" />
+                <ScalarProperty Name="Arrival_Location" ColumnName="Arrival Location" />
+                <ScalarProperty Name="Departure_Date" ColumnName="Departure Date" />
+                <ScalarProperty Name="Arrival_Date" ColumnName="Arrival Date" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="TransportCost" ColumnName="TransportCost" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitMasters">
+            <EntityTypeMapping TypeName="Model.UnitMaster">
+              <MappingFragment StoreEntitySet="UnitMaster">
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

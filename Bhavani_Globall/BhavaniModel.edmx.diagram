@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a95f671ed81d4c8e8354a50565c22d05" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.BankMaster" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CategoryMaster" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CityMaster" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CountryMaster" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CustomerMaster" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EmployeeMaster" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.InquiryMaster" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.InvoiceMaster" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LoginMaster" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.OrderMaster" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PayModeMaster" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ProductMaster" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RegstationMaster" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RoleMaster" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SelaryMaster" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ShipmentmethodMaster" Width="1.5" PointX="8.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.StateMaster" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.StockMaster" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SubcategoryMaster" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TransportMaster" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UnitMaster" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
