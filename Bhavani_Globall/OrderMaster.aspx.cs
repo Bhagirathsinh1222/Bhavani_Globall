@@ -180,7 +180,7 @@ namespace Bhavani_Globall
 
         protected void GridViewCustomer_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
+            db=new Bhavani_GlobalEntities();
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
